@@ -9,7 +9,13 @@ public class MainApp {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("NewsPU");
         EntityManager em = emf.createEntityManager();
 
+        // Add a new category
+        em.getTransaction().begin(); // returns current transaction object
 
+        Category category = new Category("Politik");
+        em.persist(category);
+
+        em.getTransaction().commit();   // needed so we get the new category
 
         em.close();
     }
