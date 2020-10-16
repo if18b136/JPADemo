@@ -29,7 +29,7 @@
       <groupId>javax.persistence</groupId>
       <artifactId>javax.persistence-api</artifactId>
       <version>2.2</version>
-      <scope>provided</scope>
+      <scope>compile</scope> <!-- was set to provided but made classNotFoundException - not a clean fix -->
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
@@ -37,6 +37,14 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.4.22.Final</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.21</version>
       <scope>runtime</scope>
     </dependency>
 
