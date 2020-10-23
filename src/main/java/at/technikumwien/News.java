@@ -16,6 +16,14 @@ import java.util.List;
 
 @Entity // now gets classified as sql table
 @Table(name = "t_news")
+@NamedQuery(
+        name = "News.selectAll",
+        query = "SELECT n FROM News n"
+)
+@NamedQuery(
+        name = "News.selectAllByCategoryId",
+        query = "SELECT n FROM News n WHERE n.category.id = :categoryid"    // colon shows the compiler that categoryid is a parameter
+)
 public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //generates an ID automatically
@@ -33,11 +41,11 @@ public class News {
     @Column(nullable = false)
     private boolean topNews;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "categoryid")    //prevent a middle table and write it into column instead
     private Category category;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(     //define the middle table
             name = "t_news_author",
             joinColumns = @JoinColumn(name = "newsid"),
