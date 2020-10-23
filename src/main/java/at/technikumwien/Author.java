@@ -28,10 +28,10 @@ public class Author {
     @Column(nullable = false, length = 50)
     private String lastname;
 
-    @ManyToMany(mappedBy = "authors")
-    private List<News> newsList;
+//    @ManyToMany(mappedBy = "authors")
+//    private List<News> newsList;
 
     public Author(Sex sex, String firstname, String lastname) {
-        this(null,sex,firstname,lastname,null);
+        this(null,sex,firstname,lastname);
     }
 }

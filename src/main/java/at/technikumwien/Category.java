@@ -21,10 +21,10 @@ public class Category {
     @Column(nullable = false, length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<News> newsList;
+//    @OneToMany(mappedBy = "category")
+//    private List<News> newsList;
 
     public Category(String name) {
-        this(null,name,null);
+        this(null,name);
     }
 }

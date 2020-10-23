@@ -29,7 +29,7 @@
       <groupId>javax.persistence</groupId>
       <artifactId>javax.persistence-api</artifactId>
       <version>2.2</version>
-      <scope>compile</scope> <!-- was set to provided but made classNotFoundException - not a clean fix -->
+      <scope>provided</scope> <!-- has to be enabled in run configuration -->
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
